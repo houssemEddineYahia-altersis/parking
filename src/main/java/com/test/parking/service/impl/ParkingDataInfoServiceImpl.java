@@ -3,7 +3,6 @@ package com.test.parking.service.impl;
 import com.test.parking.client.ParkingDataClientAPI;
 import com.test.parking.dto.RecordData;
 import com.test.parking.model.ParkingDataSourceConfig;
-import com.test.parking.repository.ParkingDataSourceRepository;
 import com.test.parking.service.ParkingDataInfoService;
 import com.test.parking.service.ParkingDataSourceService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,5 +10,4 @@ public interface ParkingDataSourceService {
      List<ParkingDataSourceConfig> getAllParkingDataSources();
 
      ParkingDataSourceConfig findByCity(String city);
-
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/parkingDataSource")
 public class parkingDataSourceController {
 
-    private final ParkingDataSourceService parkingDataSourceService;
+    private ParkingDataSourceService parkingDataSourceService;
 
     @Autowired
     public parkingDataSourceController(ParkingDataSourceService parkingDataSourceService) {

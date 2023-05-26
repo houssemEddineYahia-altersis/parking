@@ -1,12 +1,16 @@
 package com.test.parking.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Record {
-    private Field fields;
+@Builder
+public class NearbyParkingResponse {
+    List<Parking> parking;
 }
