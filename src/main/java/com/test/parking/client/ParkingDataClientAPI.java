@@ -28,7 +28,7 @@ public class ParkingDataClientAPI {
                     })
                     .block();
         } catch (Exception e) {
-            throw new EmptyThirdPartyResultException("Error Getting data", e);
+            throw new EmptyThirdPartyResultException();
         }
     }
 
@@ -44,7 +44,7 @@ public class ParkingDataClientAPI {
                     })
                     .block();
         } catch (Exception e) {
-            throw new EmptyThirdPartyResultException("Error Getting data", e);
+            throw new EmptyThirdPartyResultException();
         }
     }
 }

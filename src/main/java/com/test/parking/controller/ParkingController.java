@@ -4,28 +4,24 @@ import com.test.parking.dto.NearbyParkingRequest;
 import com.test.parking.dto.NearbyParkingResponse;
 import com.test.parking.service.ParkingService;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/parking")
 public class ParkingController {
 
-    private ParkingService parkingService;
-    @Autowired
+    private final ParkingService parkingService;
+
     public ParkingController(ParkingService parkingService) {
         this.parkingService = parkingService;
     }
-    @PostMapping("/nearby/{city}/{latitude}/{longitude}")
+    @PostMapping("/nearby")
     @ApiOperation(value = "retrieve the list of nearby parking based on the geometric coordinates")
-    public NearbyParkingResponse nearbyParking(@PathVariable String city, @PathVariable Double latitude, @PathVariable Double longitude) {
-
-        NearbyParkingRequest nearbyParkingRequest = NearbyParkingRequest.builder()
-                .city(city).latitude(latitude).longitude(longitude).build();
-        return parkingService.nearbyParking(nearbyParkingRequest);
-
+    public ResponseEntity<NearbyParkingResponse> nearbyParking(@RequestBody @Valid NearbyParkingRequest nearbyParkingRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(parkingService.nearbyParking(nearbyParkingRequest));
     }
 }
