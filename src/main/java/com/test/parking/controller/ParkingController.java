@@ -3,6 +3,7 @@ package com.test.parking.controller;
 import com.test.parking.dto.NearbyParkingRequest;
 import com.test.parking.dto.NearbyParkingResponse;
 import com.test.parking.service.ParkingService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ public class ParkingController {
         this.parkingService = parkingService;
     }
     @PostMapping("/nearby/{city}/{latitude}/{longitude}")
+    @ApiOperation(value = "retrieve the list of nearby parking based on the geometric coordinates")
     public NearbyParkingResponse nearbyParking(@PathVariable String city, @PathVariable Double latitude, @PathVariable Double longitude) {
 
         NearbyParkingRequest nearbyParkingRequest = NearbyParkingRequest.builder()

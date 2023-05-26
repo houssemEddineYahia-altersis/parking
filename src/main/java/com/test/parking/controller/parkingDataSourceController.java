@@ -3,6 +3,7 @@ package com.test.parking.controller;
 import com.test.parking.exception.AlreadyExistsException;
 import com.test.parking.model.ParkingDataSourceConfig;
 import com.test.parking.service.ParkingDataSourceService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ public class parkingDataSourceController {
     }
 
     @PostMapping()
+    @ApiOperation(value = "Create a new parking data source based on the city.")
     public ResponseEntity<?> createParkingDataSource(@RequestBody ParkingDataSourceConfig config) {
         try {
             ParkingDataSourceConfig newParkingDataSource = parkingDataSourceService.createParkingDataSources(config);
@@ -32,6 +34,7 @@ public class parkingDataSourceController {
     }
 
     @GetMapping("/all")
+    @ApiOperation(value = "Retrieve all parking data sources.")
     public List<ParkingDataSourceConfig> getAllParkingDataSources() {
         return parkingDataSourceService.getAllParkingDataSources();
     }
