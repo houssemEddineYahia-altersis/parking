@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ParkingDataSourceRepository extends MongoRepository<ParkingDataSourceConfig, String> {
     boolean existsByCity(String city);
+
+    ParkingDataSourceConfig findByCity(String city);
 }

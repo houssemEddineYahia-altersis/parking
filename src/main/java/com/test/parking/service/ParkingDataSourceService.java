@@ -5,7 +5,10 @@ import com.test.parking.model.ParkingDataSourceConfig;
 import java.util.List;
 
 public interface ParkingDataSourceService {
-     ParkingDataSourceConfig createParkingDataSource(ParkingDataSourceConfig config);
+     ParkingDataSourceConfig createParkingDataSources(ParkingDataSourceConfig config);
 
-     List<ParkingDataSourceConfig> getAllParkingDataSource();
+     List<ParkingDataSourceConfig> getAllParkingDataSources();
+
+     ParkingDataSourceConfig findByCity(String city);
+
 }

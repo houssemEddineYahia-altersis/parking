@@ -26,7 +26,7 @@ public class ParkingDataSourceServiceImpl implements ParkingDataSourceService {
      * @throws AlreadyExistsException Si la ville spécifiée dans la configuration existe déjà.
      */
     @Override
-    public ParkingDataSourceConfig createParkingDataSource(ParkingDataSourceConfig config) {
+    public ParkingDataSourceConfig createParkingDataSources(ParkingDataSourceConfig config) {
         String city = config.getCity();
         if (parkingDataSourceRepository.existsByCity(city)) {
             throw new AlreadyExistsException("City already exists.");
@@ -35,7 +35,12 @@ public class ParkingDataSourceServiceImpl implements ParkingDataSourceService {
     }
 
     @Override
-    public List<ParkingDataSourceConfig> getAllParkingDataSource() {
+    public List<ParkingDataSourceConfig> getAllParkingDataSources() {
         return parkingDataSourceRepository.findAll();
     }
+    @Override
+    public ParkingDataSourceConfig findByCity(String city) {
+        return parkingDataSourceRepository.findByCity(city);
+    }
+
 }

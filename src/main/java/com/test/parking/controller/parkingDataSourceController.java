@@ -24,7 +24,7 @@ public class parkingDataSourceController {
     @PostMapping()
     public ResponseEntity<?> createParkingDataSource(@RequestBody ParkingDataSourceConfig config) {
         try {
-            ParkingDataSourceConfig newParkingDataSource = parkingDataSourceService.createParkingDataSource(config);
+            ParkingDataSourceConfig newParkingDataSource = parkingDataSourceService.createParkingDataSources(config);
             return ResponseEntity.status(HttpStatus.CREATED).body(newParkingDataSource);
         } catch (AlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("City already exists.");
@@ -32,8 +32,8 @@ public class parkingDataSourceController {
     }
 
     @GetMapping("/all")
-    public List<ParkingDataSourceConfig> getAllParkingDataSource() {
-        return parkingDataSourceService.getAllParkingDataSource();
+    public List<ParkingDataSourceConfig> getAllParkingDataSources() {
+        return parkingDataSourceService.getAllParkingDataSources();
     }
 
 }
