@@ -18,12 +18,13 @@ public class ParkingDataSourceServiceImpl implements ParkingDataSourceService {
     public ParkingDataSourceServiceImpl(ParkingDataSourceRepository parkingDataSourceRepository) {
         this.parkingDataSourceRepository = parkingDataSourceRepository;
     }
+
     /**
-     * Crée une nouvelle configuration de source de données des Parkings.
+     * Creates a new Parking Data Sources configuration.
      *
-     * @param config La configuration de source de données de parking à créer.
-     * @return La configuration de source de données de parking créée.
-     * @throws CityAlreadyExistsException Si la ville spécifiée dans la configuration existe déjà.
+     * @param config The parking data source configuration to create.
+     * @return The created parking data source configuration.
+     * @throws CityAlreadyExistsException if the city specified in the new configuration already exists.
      */
     @Override
     public ParkingDataSourceConfig createParkingDataSources(ParkingDataSourceConfig config) {
@@ -34,12 +35,26 @@ public class ParkingDataSourceServiceImpl implements ParkingDataSourceService {
         return parkingDataSourceRepository.save(config);
     }
 
+    /**
+     * Retrieves all parking data sources.
+     *
+     * @return A list of all parking data sources.
+     * @throws EmptyDataSetException if no parking data sources configurations are found.
+     */
     @Override
     public List<ParkingDataSourceConfig> getAllParkingDataSources() {
         List<ParkingDataSourceConfig> parkingDataSourceConfig = parkingDataSourceRepository.findAll();
         if(parkingDataSourceConfig.isEmpty()) throw new EmptyDataSetException();
         return parkingDataSourceConfig;
     }
+
+    /**
+     * Retrieves parking data sources configuration for a specific city.
+     *
+     * @param city The city name
+     * @return The parking data source configuration of the specified city.
+     * @throws CityNotFoundException if the parking data sources configuration of the specified city is not found.
+     */
     @Override
     public ParkingDataSourceConfig findByCity(String city) {
         ParkingDataSourceConfig parkingDataSourceConfig = parkingDataSourceRepository.findByCity(city);

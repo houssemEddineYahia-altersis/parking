@@ -39,7 +39,7 @@ class ParkingDataSourceServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity("Paris");
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
         when(parkingDataSourceRepository.existsByCity("Paris")).thenReturn(false);
         when(parkingDataSourceRepository.save(parkingDataSourceConfig)).thenReturn(parkingDataSourceConfig);
@@ -47,7 +47,7 @@ class ParkingDataSourceServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig1 = new ParkingDataSourceConfig();
         parkingDataSourceConfig1.setCity("Paris");
         parkingDataSourceConfig1.setId("42");
-        parkingDataSourceConfig1.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig1.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig1.setParkingDataUrl("https://example.org/example");
 
         assertSame(parkingDataSourceConfig,
@@ -64,7 +64,7 @@ class ParkingDataSourceServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity("Paris");
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         when(parkingDataSourceRepository.existsByCity("Paris")).thenReturn(true);
@@ -73,7 +73,7 @@ class ParkingDataSourceServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig1 = new ParkingDataSourceConfig();
         parkingDataSourceConfig1.setCity("Paris");
         parkingDataSourceConfig1.setId("42");
-        parkingDataSourceConfig1.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig1.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig1.setParkingDataUrl("https://example.org/example");
 
         assertThrows(CityAlreadyExistsException.class,
@@ -99,7 +99,7 @@ class ParkingDataSourceServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity("Paris");
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         ArrayList<ParkingDataSourceConfig> parkingDataSourceConfigList = new ArrayList<>();
@@ -123,7 +123,7 @@ class ParkingDataSourceServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity("Paris");
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         when(parkingDataSourceRepository.findByCity("Paris")).thenReturn(parkingDataSourceConfig);

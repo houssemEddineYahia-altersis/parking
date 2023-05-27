@@ -48,7 +48,7 @@ class parkingDataInfoControllerTest {
     @Test
     void testGetAvailableParking() throws Exception {
         when(parkingDataInfoService.getAvailableParkingList((String) any())).thenReturn(new RecordData());
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/parkingInfo/available/{city}",
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/parkingInfo/availability/{city}",
                 "Paris");
         MockMvcBuilders.standaloneSetup(parkingDataInfoController)
                 .build()

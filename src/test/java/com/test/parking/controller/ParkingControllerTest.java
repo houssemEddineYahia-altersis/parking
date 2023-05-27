@@ -29,11 +29,11 @@ class ParkingControllerTest {
     private ParkingService parkingService;
 
     /**
-     * Method under test: {@link ParkingController#nearbyParking(NearbyParkingRequest)}
+     * Method under test: {@link ParkingController#getNearbyParking(NearbyParkingRequest)}
      */
     @Test
     void testNearbyParking_ValidRequest_ReturnsOKResponseWithNearbyParkingResponse() throws Exception {
-        when(parkingService.nearbyParking((NearbyParkingRequest) any())).thenReturn(new NearbyParkingResponse());
+        when(parkingService.getNearbyParkingList((NearbyParkingRequest) any())).thenReturn(new NearbyParkingResponse());
 
         NearbyParkingRequest nearbyParkingRequest = new NearbyParkingRequest();
         nearbyParkingRequest.setCity("Paris");
@@ -54,11 +54,11 @@ class ParkingControllerTest {
     }
 
     /**
-     * Method under test: {@link ParkingController#nearbyParking(NearbyParkingRequest)}
+     * Method under test: {@link ParkingController#getNearbyParking(NearbyParkingRequest)}
      */
     @Test
     void testNearbyParking_InvalidRequest_ReturnsBadRequestResponse() throws Exception {
-        when(parkingService.nearbyParking((NearbyParkingRequest) any())).thenReturn(new NearbyParkingResponse());
+        when(parkingService.getNearbyParkingList((NearbyParkingRequest) any())).thenReturn(new NearbyParkingResponse());
 
         NearbyParkingRequest nearbyParkingRequest = new NearbyParkingRequest();
         nearbyParkingRequest.setLatitude(10.0d);

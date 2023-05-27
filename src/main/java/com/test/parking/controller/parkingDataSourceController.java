@@ -21,14 +21,14 @@ public class parkingDataSourceController {
     }
 
     @PostMapping()
-    @ApiOperation(value = "Create a new parking data source based on the city.")
+    @ApiOperation(value = "Create a new parking data sources config based on the city")
     public ResponseEntity<ParkingDataSourceConfig> createParkingDataSource(@RequestBody @Valid ParkingDataSourceConfig config) {
             ParkingDataSourceConfig newParkingDataSource = parkingDataSourceService.createParkingDataSources(config);
             return ResponseEntity.status(HttpStatus.CREATED).body(newParkingDataSource);
     }
 
     @GetMapping("/all")
-    @ApiOperation(value = "Retrieve all parking data sources.")
+    @ApiOperation(value = "Retrieve all parking data sources based on the city")
     public ResponseEntity<List<ParkingDataSourceConfig>> getAllParkingDataSources() {
         return ResponseEntity.status(HttpStatus.OK).body(parkingDataSourceService.getAllParkingDataSources());
     }

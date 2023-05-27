@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Field {
-
     @JsonProperty("nom")
     private String nom;
     @JsonProperty("geo_point_2d")
@@ -20,5 +19,4 @@ public class Field {
     private int capacity;
     @JsonProperty("places")
     private int places;
-
 }

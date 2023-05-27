@@ -38,7 +38,7 @@ class ParkingDataInfoServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity(city);
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         when(parkingDataSourceService.findByCity(city)).thenReturn(parkingDataSourceConfig);
@@ -59,7 +59,7 @@ class ParkingDataInfoServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity(city);
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         when(parkingDataSourceService.findByCity(city)).thenReturn(parkingDataSourceConfig);
@@ -79,16 +79,16 @@ class ParkingDataInfoServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity(city);
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         when(parkingDataSourceService.findByCity(city)).thenReturn(parkingDataSourceConfig);
         RecordData recordData = new RecordData();
-        when(parkingDataClientAPI.getAvailableParking(parkingDataSourceConfig.getParkingAvailableUrl())).thenReturn(recordData);
+        when(parkingDataClientAPI.getAvailableParking(parkingDataSourceConfig.getParkingAvailabilityUrl())).thenReturn(recordData);
 
         assertSame(recordData, parkingDataInfoServiceImpl.getAvailableParkingList(city));
         verify(parkingDataSourceService).findByCity(city);
-        verify(parkingDataClientAPI).getAvailableParking(parkingDataSourceConfig.getParkingAvailableUrl());
+        verify(parkingDataClientAPI).getAvailableParking(parkingDataSourceConfig.getParkingAvailabilityUrl());
     }
 
     /**
@@ -100,15 +100,15 @@ class ParkingDataInfoServiceImplTest {
         ParkingDataSourceConfig parkingDataSourceConfig = new ParkingDataSourceConfig();
         parkingDataSourceConfig.setCity(city);
         parkingDataSourceConfig.setId("42");
-        parkingDataSourceConfig.setParkingAvailableUrl("https://example.org/example");
+        parkingDataSourceConfig.setParkingAvailabilityUrl("https://example.org/example");
         parkingDataSourceConfig.setParkingDataUrl("https://example.org/example");
 
         when(parkingDataSourceService.findByCity(city)).thenReturn(parkingDataSourceConfig);
-        when(parkingDataClientAPI.getAvailableParking(parkingDataSourceConfig.getParkingAvailableUrl())).thenThrow(new EmptyDataSetException());
+        when(parkingDataClientAPI.getAvailableParking(parkingDataSourceConfig.getParkingAvailabilityUrl())).thenThrow(new EmptyDataSetException());
 
         assertThrows(EmptyDataSetException.class, () -> parkingDataInfoServiceImpl.getAvailableParkingList(city));
         verify(parkingDataSourceService).findByCity(city);
-        verify(parkingDataClientAPI).getAvailableParking(parkingDataSourceConfig.getParkingAvailableUrl());
+        verify(parkingDataClientAPI).getAvailableParking(parkingDataSourceConfig.getParkingAvailabilityUrl());
     }
 }
 

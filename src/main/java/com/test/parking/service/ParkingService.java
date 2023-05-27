@@ -4,5 +4,5 @@ import com.test.parking.dto.NearbyParkingRequest;
 import com.test.parking.dto.NearbyParkingResponse;
 
 public interface ParkingService {
-    NearbyParkingResponse nearbyParking(NearbyParkingRequest nearbyParkingRequest);
+    NearbyParkingResponse getNearbyParkingList(NearbyParkingRequest nearbyParkingRequest);
 }

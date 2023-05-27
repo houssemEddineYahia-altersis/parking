@@ -8,11 +8,9 @@ public enum CustomHttpStatus {
     CITY_NOT_FOUND(901, "City not found request"),
     CITY_ALREADY_EXISTS(902, "City already exists"),
     EMPTY_DATA_SET(903, "Data set is empty"),
-
     ILLEGAL_DATA_INPUT(904, "Available parking list could not be bigger than parking list"),
     EMPTY_THIRD_PART(905, "Cannot get data from external API");
     private final int value;
-
     private final String reason;
 
     CustomHttpStatus(int value, String reason) {

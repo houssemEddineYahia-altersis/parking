@@ -32,12 +32,12 @@ public class ParkingDataClientAPI {
         }
     }
 
-    public RecordData getAvailableParking(String parkingAvailableUrl) {
+    public RecordData getAvailableParking(String parkingAvailabilityUrl) {
 
         try {
             return webClient
                     .get()
-                    .uri(parkingAvailableUrl)
+                    .uri(parkingAvailabilityUrl)
                     .accept(MediaType.APPLICATION_JSON)
                     .retrieve()
                     .bodyToMono(new ParameterizedTypeReference<RecordData>() {

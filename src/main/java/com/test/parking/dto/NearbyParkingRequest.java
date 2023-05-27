@@ -18,6 +18,4 @@ public class NearbyParkingRequest {
     private Double latitude;
     @NotNull
     private Double longitude;
-
-
 }

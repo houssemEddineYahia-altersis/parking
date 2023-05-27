@@ -20,8 +20,9 @@ public class ParkingController {
         this.parkingService = parkingService;
     }
     @PostMapping("/nearby")
-    @ApiOperation(value = "retrieve the list of nearby parking based on the geometric coordinates")
-    public ResponseEntity<NearbyParkingResponse> nearbyParking(@RequestBody @Valid NearbyParkingRequest nearbyParkingRequest) {
-        return ResponseEntity.status(HttpStatus.OK).body(parkingService.nearbyParking(nearbyParkingRequest));
+    @ApiOperation(value = "Retrieve the list of nearby parking based on the city and the geometric coordinates received from " +
+            "a mobile device or a website")
+    public ResponseEntity<NearbyParkingResponse> getNearbyParking(@RequestBody @Valid NearbyParkingRequest nearbyParkingRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(parkingService.getNearbyParkingList(nearbyParkingRequest));
     }
 }

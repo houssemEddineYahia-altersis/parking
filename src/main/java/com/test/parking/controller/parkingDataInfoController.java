@@ -16,14 +16,13 @@ public class parkingDataInfoController {
         this.parkingDataService = parkingDataService;
     }
     @GetMapping("/{city}")
-    @ApiOperation(value = "Retrieve a list of parking and their information for the specified city")
+    @ApiOperation(value = "Retrieve the parking list of a specific city")
     public ResponseEntity<RecordData> getParkingList(@PathVariable String city) {
-
         return ResponseEntity.status(HttpStatus.OK).body(parkingDataService.getParkingList(city));
     }
 
-    @GetMapping("/available/{city}")
-    @ApiOperation(value = "Retrieve parking availability information for the specified city.")
+    @GetMapping("/availability/{city}")
+    @ApiOperation(value = "Retrieve the parking list of a specific city with their availabilities information")
     public ResponseEntity<RecordData> getAvailableParking(@PathVariable String city) {
         return ResponseEntity.status(HttpStatus.OK).body(parkingDataService.getAvailableParkingList(city));
     }
